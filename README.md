@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/snappy-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/snappy-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/snappy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/snappy-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/snappy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/snappy-feedstock/branch/master)
