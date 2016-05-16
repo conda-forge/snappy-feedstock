@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 ./autogen.sh
-./configure --prefix=$PREFIX
+./configure --with-pic --prefix=$PREFIX
 make
 make check
 make install
