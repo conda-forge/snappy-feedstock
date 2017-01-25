@@ -10,7 +10,7 @@ source:
   md5: 7358c82f133dc77798e4c2062a749b73
 
 build:
-  number: 2
+  number: 3
   skip: true      # [win]
 
 requirements:

@@ -10,7 +10,7 @@
 source activate "${CONDA_DEFAULT_ENV}"
 
 ./autogen.sh
-./configure --with-pic --prefix=$PREFIX
+CXXFLAGS="${CXXFLAGS} -O2" ./configure --with-pic --prefix=$PREFIX
 make
 make check
 make install
