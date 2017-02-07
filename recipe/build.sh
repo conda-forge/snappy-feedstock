@@ -9,8 +9,9 @@
 #
 source activate "${CONDA_DEFAULT_ENV}"
 
+autoreconf --force --install
 ./autogen.sh
-CXXFLAGS="${CXXFLAGS} -O2" ./configure --with-pic --prefix=$PREFIX
+CXXFLAGS="${CXXFLAGS} -O1 -DNDEBUG" ./configure --with-pic --prefix=$PREFIX --disable-dependency-tracking
 make
 make check
 make install
