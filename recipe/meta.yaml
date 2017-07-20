@@ -8,6 +8,11 @@ source:
   url: https://github.com/google/snappy/archive/{{ version }}.tar.gz
   fn: snappy-{{ version }}.tar.gz
   sha256: 6fa92cde5b2caefd0d9a60336991ba42e5a7ddc3bdc36c5610451373751d0495
+  patches:
+    # 1.1.6 crashes because it tries to install README, but the file is now
+    # named README.md. This patch is submitted upstream:
+    # https://github.com/google/snappy/pull/46
+    - fix-autoconf-readme.patch
 
 build:
   number: 0

@@ -21,5 +21,4 @@ fi
 ./configure --with-pic --prefix=$PREFIX --disable-dependency-tracking
 make
 make check
-ln README.md README  # hack; snappy autotools build is broken in 1.1.6
 make install
