@@ -1,6 +1,11 @@
 #!/bin/env bash
 set -e
 
+if [[ "$(uname)" == "Darwin" ]]; then
+    # at least for Travis's compiler, -O2 fails the unit tests
+    export CXXFLAGS="${CXXFLAGS} -O1"
+fi
+
 mkdir build
 cd build
 cmake .. \
