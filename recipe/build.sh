@@ -4,14 +4,16 @@ set -e
 if [[ "$(uname)" == "Darwin" ]]; then
     # at least for Travis's compiler, -O2 fails the unit tests
     export CXXFLAGS="${CXXFLAGS} -O1"
+else
+    export CXXFLAGS="${CXXFLAGS} -O2"
 fi
+export CXXFLAGS="${CXXFLAGS} -DNDEBUG"
 
 mkdir build
 cd build
 cmake .. \
     -DCMAKE_INSTALL_PREFIX="$PREFIX" \
-    -DCMAKE_PREFIX_PATH="$PREFIX" \
-    -DCMAKE_BUILD_TYPE=Release
+    -DCMAKE_PREFIX_PATH="$PREFIX"
 
 make -j $CPU_COUNT
 
