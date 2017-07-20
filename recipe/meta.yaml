@@ -1,32 +1,32 @@
-{% set version = "1.1.4" %}
+{% set version = "1.1.6" %}
+{% set sha256 = "6fa92cde5b2caefd0d9a60336991ba42e5a7ddc3bdc36c5610451373751d0495" %}
 
 package:
   name: snappy
   version: {{ version }}
 
 source:
-  url: https://github.com/google/snappy/releases/download/{{ version }}/snappy-{{ version }}.tar.gz
-  fn: snappy-{{ version }}.tar.gz
-  sha256: 134bfe122fd25599bb807bb8130e7ba6d9bdb851e0b16efcb83ac4f5d0b70057
+  url: https://github.com/google/snappy/archive/{{ version }}.tar.gz
+  fn: {{ version }}.tar.gz
+  sha256: {{ sha256 }}
+  patches:
+    - skip-microbenchmarks.patch
 
 build:
-  number: 1
+  number: 0
   skip: true      # [win]
 
 requirements:
   build:
     - toolchain
+    - cmake
     - msinttypes  # [win]
-    - libtool     # [unix]
-    - automake    # [unix]
-    - pkg-config  # [unix]
 
 test:
   commands:
     - test -e $PREFIX/include/snappy.h               # [unix]
     - test -e $PREFIX/include/snappy-stubs-public.h  # [unix]
     - test -e $PREFIX/lib/libsnappy.dylib            # [osx]
-    - test -e $PREFIX/lib/libsnappy.a                # [unix]
     - test -e $PREFIX/lib/libsnappy.so               # [linux]
 
 about:
