@@ -1,0 +1,22 @@
+From ca1709220830849530cca59839da665d924fcc41 Mon Sep 17 00:00:00 2001
+From: "Dougal J. Sutherland" <dougal@gmail.com>
+Date: Thu, 20 Jul 2017 20:50:15 +0100
+Subject: [PATCH] fix autoconf README.md workaround
+
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 0746a16..640d544 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -28,4 +28,4 @@ libtool: $(LIBTOOL_DEPS)
+ # Needed by autoconf because we use README.md instead of README.
+ # See http://stackoverflow.com/q/15013672/
+ README: README.md
+-	cat $< > $@.tmp
++	cp $< $@
+-- 
+2.13.3
+
