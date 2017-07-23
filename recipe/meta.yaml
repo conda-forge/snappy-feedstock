@@ -21,10 +21,15 @@ source:
 
 build:
   number: 0
+  features:
+    - vc9   # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py>=35]
 
 requirements:
   build:
     - toolchain
+    - python      # [win]
     - cmake       # [win]
     - msinttypes  # [win]
     - libtool     # [unix]
@@ -40,6 +45,7 @@ test:
     - if not exist %LIBRARY_INC%\snappy.h exit 1               # [win]
     - if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1  # [win]
     - if not exist %LIBRARY_LIB%\snappy.lib exit 1             # [win]
+    - if not exist %LIBRARY_BIN%\snappy.dll exit 1             # [win]
 
 about:
   home: https://github.com/google/snappy
