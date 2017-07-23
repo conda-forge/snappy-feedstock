@@ -37,6 +37,8 @@ requirements:
     - pkg-config  # [unix]
 
 test:
+  requires:
+    - python {{ environ['PY_VER'] + '*' }}  # [win]
   commands:
     - test -e $PREFIX/include/snappy.h               # [unix]
     - test -e $PREFIX/include/snappy-stubs-public.h  # [unix]
