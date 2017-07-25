@@ -1,12 +1,24 @@
-REM Microsoft Visual Studio Project files from https://github.com/kmanley/snappy-msvc
-copy %RECIPE_DIR%\snappy.sln %SRC_DIR%
-copy %RECIPE_DIR%\snappy.vcproj %SRC_DIR%
+setlocal EnableDelayedExpansion
 
-set SLN_FILE=snappy.sln
-set SLN_CFG=Release
-if "%ARCH%"=="32" (set SLN_PLAT=Win32) else (set SLN_PLAT=x64)
+mkdir build
+cd build
 
-REM Build step
-devenv "%SLN_FILE%" /Build "%SLN_CFG%|%SLN_PLAT%"
+cmake -G "NMake Makefiles" ^
+    -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
+    -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
+    -DCMAKE_BUILD_TYPE:STRING=Release ^
+    -DCMAKE_POSITION_INDEPENDENT_CODE=1 ^
+    ..
 if errorlevel 1 exit 1
 
+nmake
+if errorlevel 1 exit 1
+
+:: need to be in the root directory for this to run properly
+cd ..
+build\snappy-unittest
+if errorlevel 1 exit 1
+cd build
+
+nmake install
+if errorlevel 1 exit 1
