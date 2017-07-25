@@ -10,10 +10,6 @@ source:
   fn: snappy-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    # 1.1.6 crashes because it tries to install README, but the file is now
-    # named README.md. This patch is submitted upstream:
-    # https://github.com/google/snappy/pull/46
-    - fix-autoconf-readme.patch
     # Have snappy-unittest not run the slow-ish microbenchmarks, but just
     # the quick correctness tests, without bothering with gflags (which didn't
     # work out of the box). This is the recommended method in the README.
@@ -35,11 +31,8 @@ requirements:
   build:
     - toolchain
     - python      # [win]
-    - cmake       # [win]
+    - cmake
     - msinttypes  # [win]
-    - libtool     # [unix]
-    - automake    # [unix]
-    - pkg-config  # [unix]
 
 test:
   requires:
