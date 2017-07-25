@@ -14,9 +14,8 @@ source:
     # the quick correctness tests, without bothering with gflags (which didn't
     # work out of the box). This is the recommended method in the README.
     - skip-microbenchmarks.patch
-    # Patch CMakeLists to build a static library as well. Not currently
-    # available upstream, but a similar change is included in:
-    # https://github.com/google/snappy/pull/38
+    # Patch CMakeLists to build a static library as well.
+    # Submitted upstream as: https://github.com/google/snappy/pull/48
     - build-static-lib.patch
 
 build:
@@ -61,3 +60,4 @@ extra:
     - jakirkham
     - wesm
     - xhochy
+    - dougalsutherland
