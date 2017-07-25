@@ -18,9 +18,10 @@ source:
     # the quick correctness tests, without bothering with gflags (which didn't
     # work out of the box). This is the recommended method in the README.
     - skip-microbenchmarks.patch
+    - build-static-lib.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and py35]
   features:
     - vc9   # [win and py27]
@@ -49,6 +50,7 @@ test:
     - if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1  # [win]
     - if not exist %LIBRARY_LIB%\snappy.lib exit 1             # [win]
     - if not exist %LIBRARY_BIN%\snappy.dll exit 1             # [win]
+    - if not exist %LIBRARY_LIB%\snappy_static.lib exit 1      # [win]
 
 about:
   home: https://github.com/google/snappy
