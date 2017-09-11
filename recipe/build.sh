@@ -35,5 +35,5 @@ function build() {
 }
 
 
-build static "-DCMAKE_POSITION_INDEPENDENT_CODE=1"
+build static "-DBUILD_SHARED_LIBS=OFF -DCMAKE_POSITION_INDEPENDENT_CODE=1"
 build dynamic "-DBUILD_SHARED_LIBS=ON"
