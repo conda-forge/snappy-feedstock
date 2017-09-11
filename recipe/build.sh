@@ -19,6 +19,7 @@ function build() {
     cmake .. \
         -DCMAKE_INSTALL_PREFIX="$PREFIX" \
         -DCMAKE_PREFIX_PATH="$PREFIX" \
+        -DCMAKE_INSTALL_LIBDIR=lib \
         $extra_args
 
     make -j $CPU_COUNT
