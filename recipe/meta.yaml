@@ -17,6 +17,7 @@ source:
     - skip-microbenchmarks.patch
     # Name the static library snappy_static.lib on windows, to distinguish from
     # the dynamic library, since they have the same suffix there.
+    # https://github.com/google/snappy/pull/57
     - windows-static-lib-name.patch
 
 build:
