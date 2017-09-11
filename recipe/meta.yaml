@@ -1,5 +1,6 @@
-{% set version = "1.1.6" %}
-{% set sha256 = "6fa92cde5b2caefd0d9a60336991ba42e5a7ddc3bdc36c5610451373751d0495" %}
+{% set version = "1.1.7" %}
+{% set sha256 = "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4" %}
+{% set build = 0 %}
 
 package:
   name: snappy
@@ -14,12 +15,12 @@ source:
     # the quick correctness tests, without bothering with gflags (which didn't
     # work out of the box). This is the recommended method in the README.
     - skip-microbenchmarks.patch
-    # Patch CMakeLists to build a static library as well.
-    # Submitted upstream as: https://github.com/google/snappy/pull/48
-    - build-static-lib.patch
+    # Name the static library snappy_static.lib on windows, to distinguish from
+    # the dynamic library, since they have the same suffix there.
+    - windows-static-lib-name.patch
 
 build:
-  number: 1
+  number: {{ build }}
   skip: true  # [win and py35]
   features:
     - vc9   # [win and py27]
