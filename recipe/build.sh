@@ -20,6 +20,7 @@ function build() {
         -DCMAKE_INSTALL_PREFIX="$PREFIX" \
         -DCMAKE_PREFIX_PATH="$PREFIX" \
         -DCMAKE_INSTALL_LIBDIR=lib \
+        -DHAVE_LIBZ=FALSE -DHAVE_LIBLZO2=FALSE \
         $extra_args
 
     make -j $CPU_COUNT
