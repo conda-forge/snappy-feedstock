@@ -1,5 +1,9 @@
 setlocal EnableDelayedExpansion
 
+:: Remove -GL from CXXFLAGS as this causes a fatal error
+set "CFLAGS= -MD"
+set "CXXFLAGS= -MD"
+
 mkdir build-dynamic
 cd build-dynamic
 
