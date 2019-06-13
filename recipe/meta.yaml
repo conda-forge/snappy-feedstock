@@ -33,8 +33,6 @@ requirements:
     - msinttypes  # [win]
 
 test:
-  requires:
-    - python {{ environ['PY_VER'] + '*' }}  # [win]
   commands:
     - test -e $PREFIX/include/snappy.h               # [unix]
     - test -e $PREFIX/include/snappy-stubs-public.h  # [unix]
