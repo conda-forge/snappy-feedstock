@@ -22,6 +22,7 @@ source:
 
 build:
   number: {{ build }}
+  skip: true  # [win and vc<14]
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
