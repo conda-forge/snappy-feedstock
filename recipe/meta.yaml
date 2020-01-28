@@ -1,6 +1,5 @@
 {% set version = "1.1.8" %}
 {% set sha256 = "16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f" %}
-{% set build = 0 %}
 
 package:
   name: snappy
@@ -21,12 +20,13 @@ source:
     - windows-static-lib-name.patch
 
 build:
-  number: {{ build }}
+  number: 1
   skip: true  # [win and vc<14]
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
-    - {{ pin_subpackage('snappy', max_pin='x.x.x') }}
+    # No: 1.1.5 was a bug and reverted in 1.1.6
+    - {{ pin_subpackage('snappy', max_pin='x') }}
 
 requirements:
   build:
