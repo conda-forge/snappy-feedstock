@@ -49,7 +49,7 @@ test:
 about:
   home: https://github.com/google/snappy
   summary: A fast compressor/decompressor
-  license: BSD 3-clause
+  license: BSD-3-Clause
   license_file: COPYING
   license_family: BSD
 
@@ -60,4 +60,3 @@ extra:
     - wesm
     - xhochy
     - djsutherland
-    - MaxRis
