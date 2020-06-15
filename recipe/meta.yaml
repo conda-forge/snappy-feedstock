@@ -20,8 +20,7 @@ source:
     - windows-static-lib-name.patch
 
 build:
-  number: 1
-  skip: true  # [win and vc<14]
+  number: 2
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
@@ -42,17 +41,15 @@ test:
     - test -e $PREFIX/include/snappy.h               # [unix]
     - test -e $PREFIX/include/snappy-stubs-public.h  # [unix]
     - test -e $PREFIX/lib/libsnappy$SHLIB_EXT        # [unix]
-    - test -e $PREFIX/lib/libsnappy.a                # [unix]
     - if not exist %LIBRARY_INC%\snappy.h exit 1               # [win]
     - if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1  # [win]
     - if not exist %LIBRARY_LIB%\snappy.lib exit 1             # [win]
     - if not exist %LIBRARY_BIN%\snappy.dll exit 1             # [win]
-    - if not exist %LIBRARY_LIB%\snappy_static.lib exit 1      # [win]
 
 about:
   home: https://github.com/google/snappy
   summary: A fast compressor/decompressor
-  license: BSD 3-clause
+  license: BSD-3-Clause
   license_file: COPYING
   license_family: BSD
 
@@ -63,4 +60,3 @@ extra:
     - wesm
     - xhochy
     - djsutherland
-    - MaxRis
