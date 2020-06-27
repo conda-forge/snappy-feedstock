@@ -3,7 +3,7 @@ About snappy
 
 Home: https://github.com/google/snappy
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
@@ -177,7 +177,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@MaxRis](https://github.com/MaxRis/)
 * [@djsutherland](https://github.com/djsutherland/)
 * [@groutr](https://github.com/groutr/)
 * [@jakirkham](https://github.com/jakirkham/)
