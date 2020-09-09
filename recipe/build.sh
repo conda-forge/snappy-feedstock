@@ -16,7 +16,7 @@ function build() {
 
     mkdir build-$suffix
     cd build-$suffix
-    cmake .. \
+    cmake ${CMAKE_ARGS} .. \
         -DCMAKE_INSTALL_PREFIX="$PREFIX" \
         -DCMAKE_PREFIX_PATH="$PREFIX" \
         -DCMAKE_INSTALL_LIBDIR=lib \
@@ -26,9 +26,11 @@ function build() {
     make -j $CPU_COUNT
 
     # need to be in the root directory for this to run properly
-    cd ..
-    build-$suffix/snappy_unittest
-    cd build-$suffix
+    if [[ "$CONDA_BUILD_CROSS_COMPILATION" != 1 ]]; then
+        cd ..
+        build-$suffix/snappy_unittest
+        cd build-$suffix
+    fi
 
     make install
 
