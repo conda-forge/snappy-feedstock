@@ -1,4 +1,4 @@
-{% set version = "1.1.8" %}
+{% set version = "1.1.9" %}
 
 package:
   name: snappy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/google/snappy/archive/{{ version }}.tar.gz
-  sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
+  sha256: 75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7
   patches:
     # Have snappy-unittest not run the slow-ish microbenchmarks, but just
     # the quick correctness tests, without bothering with gflags (which didn't
@@ -19,7 +19,7 @@ source:
     - disable_bmi.patch
 
 build:
-  number: 3
+  number: 0
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
