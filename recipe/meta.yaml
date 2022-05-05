@@ -17,6 +17,8 @@ source:
 
 build:
   number: 0
+  ignore_run_exports_from:
+    - lz4-c
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
@@ -33,6 +35,7 @@ requirements:
     - msinttypes  # [win]
     - gtest
     - gmock
+    - lz4-c
 
 test:
   commands:
