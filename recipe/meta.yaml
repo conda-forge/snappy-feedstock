@@ -1,4 +1,4 @@
-{% set version = "1.1.8" %}
+{% set version = "1.1.9" %}
 
 package:
   name: snappy
@@ -6,20 +6,19 @@ package:
 
 source:
   url: https://github.com/google/snappy/archive/{{ version }}.tar.gz
-  sha256: 16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f
+  sha256: 75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7
   patches:
-    # Have snappy-unittest not run the slow-ish microbenchmarks, but just
-    # the quick correctness tests, without bothering with gflags (which didn't
-    # work out of the box). This is the recommended method in the README.
-    - skip-microbenchmarks.patch
     # Name the static library snappy_static.lib on windows, to distinguish from
     # the dynamic library, since they have the same suffix there.
     # https://github.com/google/snappy/pull/57
     - windows-static-lib-name.patch
-    - disable_bmi.patch
+    - 0001-Unbundle-gtest.patch
+    - 0002-Disable-BMI2.patch
 
 build:
-  number: 3
+  number: 0
+  ignore_run_exports_from:
+    - lz4-c
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
@@ -34,6 +33,9 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - msinttypes  # [win]
+    - gtest
+    - gmock
+    - lz4-c
 
 test:
   commands:
