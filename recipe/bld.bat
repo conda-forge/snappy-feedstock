@@ -20,12 +20,6 @@ if errorlevel 1 exit 1
 nmake
 if errorlevel 1 exit 1
 
-:: need to be in the root directory for this to run properly
-cd ..
-build-dynamic\snappy_unittest
-if errorlevel 1 exit 1
-cd build-dynamic
-
 nmake install
 if errorlevel 1 exit 1
 
