@@ -16,7 +16,7 @@ source:
     - 0002-Disable-BMI2.patch
 
 build:
-  number: 0
+  number: 1
   ignore_run_exports_from:
     - lz4-c
   run_exports:
