@@ -14,9 +14,10 @@ source:
     - windows-static-lib-name.patch
     - 0001-Unbundle-gtest.patch
     - 0002-Disable-BMI2.patch
+    - 0001-cmake-add-option-to-enable-disable-RTTI.patch
 
 build:
-  number: 1
+  number: 2
   ignore_run_exports_from:
     - lz4-c
   run_exports:
