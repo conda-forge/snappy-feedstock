@@ -1,11 +1,11 @@
-About snappy
-============
+About snappy-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/snappy-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/google/snappy
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/snappy-feedstock/blob/main/LICENSE.txt)
 
 Summary: A fast compressor/decompressor
 
