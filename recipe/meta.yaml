@@ -1,4 +1,4 @@
-{% set version = "1.1.9" %}
+{% set version = "1.1.10" %}
 
 package:
   name: snappy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/google/snappy/archive/{{ version }}.tar.gz
-  sha256: 75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7
+  sha256: 49d831bffcc5f3d01482340fe5af59852ca2fe76c3e05df0e67203ebbe0f1d90
   patches:
     # Name the static library snappy_static.lib on windows, to distinguish from
     # the dynamic library, since they have the same suffix there.
@@ -17,7 +17,7 @@ source:
     - 0001-cmake-add-option-to-enable-disable-RTTI.patch
 
 build:
-  number: 2
+  number: 0
   ignore_run_exports_from:
     - lz4-c
   run_exports:
