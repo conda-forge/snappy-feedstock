@@ -15,6 +15,7 @@ source:
     - 0001-Unbundle-gtest.patch
     - 0002-Disable-BMI2.patch
     - 0001-cmake-add-option-to-enable-disable-RTTI.patch
+    - 0001-Omit-Werror-during-compilation.patch
 
 build:
   number: 0
