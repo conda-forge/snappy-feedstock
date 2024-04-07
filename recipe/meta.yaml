@@ -1,4 +1,4 @@
-{% set version = "1.1.10" %}
+{% set version = "1.2.0" %}
 
 package:
   name: snappy
@@ -6,16 +6,16 @@ package:
 
 source:
   url: https://github.com/google/snappy/archive/{{ version }}.tar.gz
-  sha256: 49d831bffcc5f3d01482340fe5af59852ca2fe76c3e05df0e67203ebbe0f1d90
+  sha256: 9b8f10fbb5e3bc112f2e5e64f813cb73faea42ec9c533a5023b5ae08aedef42e
   patches:
     # Name the static library snappy_static.lib on windows, to distinguish from
     # the dynamic library, since they have the same suffix there.
     # https://github.com/google/snappy/pull/57
-    - windows-static-lib-name.patch
-    - 0001-Unbundle-gtest.patch
-    - 0002-Disable-BMI2.patch
-    - 0001-cmake-add-option-to-enable-disable-RTTI.patch
-    - 0001-Omit-Werror-during-compilation.patch
+    - patches/0001-change-static-lib-output-name-on-windows.patch
+    - patches/0002-Unbundle-gtest.patch
+    - patches/0003-Disable-BMI2.patch
+    - patches/0004-cmake-add-option-to-enable-disable-RTTI.patch
+    - patches/0005-Omit-Werror-during-compilation.patch
 
 build:
   number: 0
@@ -35,7 +35,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - msinttypes  # [win]
-    - gtest
+    - gtest 1.13
     - gmock
     - lz4-c
 
