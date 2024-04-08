@@ -27,7 +27,7 @@ build:
     # No: 1.1.5 was a bug and reverted in 1.1.6
     # The ABI has been observed to change between minor versions
     # we expect the ABI to be stable across patch versions.
-    # See: https://github.com/man-group/ArcticDB/issues/1479
+    # See: https://github.com/conda-forge/snappy-feedstock/issues/35
     - {{ pin_subpackage('snappy', max_pin='x.x') }}
 
 requirements:
