@@ -4,7 +4,6 @@ set -e
 if [[ "$(uname)" == "Darwin" ]]; then
     # at least for Travis's compiler, -O2 fails the unit tests
     export CXXFLAGS="${CXXFLAGS} -O1"
-    export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_CXX_STANDARD=14"
 else
     export CXXFLAGS="${CXXFLAGS} -O2"
 fi
@@ -22,6 +21,7 @@ function build() {
         -DCMAKE_PREFIX_PATH="$PREFIX" \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DHAVE_LIBZ=FALSE -DHAVE_LIBLZO2=FALSE \
+	-DCMAKE_CXX_STANDARD=17 \
 	-DSNAPPY_BUILD_BENCHMARKS=OFF \
         -DSNAPPY_ENABLE_RTTI=ON \
         $extra_args
