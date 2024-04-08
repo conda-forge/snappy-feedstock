@@ -18,14 +18,15 @@ source:
     - 0001-Omit-Werror-during-compilation.patch
 
 build:
-  number: 0
+  number: 1
   ignore_run_exports_from:
     - lz4-c
   run_exports:
     # SO name seems to be changing with patch versions
     # https://abi-laboratory.pro/?view=timeline&l=snappy
     # No: 1.1.5 was a bug and reverted in 1.1.6
-    - {{ pin_subpackage('snappy', max_pin='x') }}
+    # The ABI changed with 1.2
+    - {{ pin_subpackage('snappy', max_pin='x.x') }}
 
 requirements:
   build:
@@ -35,7 +36,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - msinttypes  # [win]
-    - gtest
+    - gtest 1.13
     - gmock
     - lz4-c
 
