@@ -16,6 +16,8 @@ source:
     - patches/0003-Disable-BMI2.patch
     - patches/0004-cmake-add-option-to-enable-disable-RTTI.patch
     - patches/0005-Omit-Werror-during-compilation.patch
+    # Backport of https://github.com/google/snappy/pull/178
+    - patches/0006-Update-version-number-to-1.2.0.patch
 
 build:
   number: 1
