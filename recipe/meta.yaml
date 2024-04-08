@@ -36,7 +36,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - msinttypes  # [win]
-    - gtest
+    - gtest 1.13
     - gmock
     - lz4-c
 

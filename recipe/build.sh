@@ -4,6 +4,7 @@ set -e
 if [[ "$(uname)" == "Darwin" ]]; then
     # at least for Travis's compiler, -O2 fails the unit tests
     export CXXFLAGS="${CXXFLAGS} -O1"
+    export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_CXX_STANDARD=14"
 else
     export CXXFLAGS="${CXXFLAGS} -O2"
 fi
