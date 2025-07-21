@@ -10,7 +10,5 @@ cxx_compiler:
 - vs2022
 lz4_c:
 - '1.10'
-snappy:
-- '1.2'
 target_platform:
 - win-64
