@@ -21,7 +21,7 @@ source:
     - patches/0005-Omit-Werror-during-compilation.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -68,6 +68,7 @@ about:
   license: BSD-3-Clause
   license_file: COPYING
   homepage: https://github.com/google/snappy
+  repository: https://github.com/google/snappy
 
 extra:
   recipe-maintainers:
