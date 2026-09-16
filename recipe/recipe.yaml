@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 1.2.2
+  version: "1.3.0"
 
 package:
   name: snappy
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/google/snappy/archive/${{ version }}.tar.gz
-  sha256: 90f74bc1fbf78a6c56b3c4a082a05103b3a56bb17bca1a27e052ea11723292dc
+  sha256: 695d585b7679489a5dc9f5148a91781c8a14f4a9a5dbcdb5672ce0e761468b23
   patches:
     # Name the static library snappy_static.lib on windows, to distinguish from
     # the dynamic library, since they have the same suffix there.
@@ -21,7 +21,7 @@ source:
     - patches/0005-Omit-Werror-during-compilation.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -45,24 +45,20 @@ requirements:
 tests:
   - script:
       - if: unix
-        then: test -e $PREFIX/include/snappy.h
-      - if: unix
-        then: test -e $PREFIX/include/snappy-stubs-public.h
-      - if: unix
-        then: test -e $PREFIX/lib/libsnappy$SHLIB_EXT
+        then:
+          - test -e $PREFIX/include/snappy.h
+          - test -e $PREFIX/include/snappy-stubs-public.h
+          - test -e $PREFIX/lib/libsnappy$SHLIB_EXT
       - if: linux
         then: test -f $PREFIX/lib/libsnappy.so.${PKG_VERSION}
       - if: osx
         then: test -f $PREFIX/lib/libsnappy.${PKG_VERSION}.dylib
       - if: win
-        then: if not exist %LIBRARY_INC%\snappy.h exit 1
-      - if: win
-        then: if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1
-      - if: win
-        then: if not exist %LIBRARY_LIB%\snappy.lib exit 1
-      - if: win
-        then: if not exist %LIBRARY_BIN%\snappy.dll exit 1
-
+        then:
+          - if not exist %LIBRARY_INC%\snappy.h exit 1
+          - if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1
+          - if not exist %LIBRARY_LIB%\snappy.lib exit 1
+          - if not exist %LIBRARY_BIN%\snappy.dll exit 1
 about:
   summary: A fast compressor/decompressor
   license: BSD-3-Clause
