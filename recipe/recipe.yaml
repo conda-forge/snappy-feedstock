@@ -21,7 +21,7 @@ source:
     - patches/0005-Omit-Werror-during-compilation.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -33,36 +33,34 @@ requirements:
   host:
     - if: win
       then: msinttypes
-    - gtest 1.13.*
+    - gtest
     - gmock
     - lz4-c
   run_exports:
     - ${{ pin_subpackage('snappy', upper_bound='x.x') }}
   ignore_run_exports:
     from_package:
+      # gtest is only used by the unit tests; newer gtest run-exports itself
+      - gtest
       - lz4-c
 
 tests:
   - script:
       - if: unix
-        then: test -e $PREFIX/include/snappy.h
-      - if: unix
-        then: test -e $PREFIX/include/snappy-stubs-public.h
-      - if: unix
-        then: test -e $PREFIX/lib/libsnappy$SHLIB_EXT
+        then:
+          - test -e $PREFIX/include/snappy.h
+          - test -e $PREFIX/include/snappy-stubs-public.h
+          - test -e $PREFIX/lib/libsnappy$SHLIB_EXT
       - if: linux
         then: test -f $PREFIX/lib/libsnappy.so.${PKG_VERSION}
       - if: osx
         then: test -f $PREFIX/lib/libsnappy.${PKG_VERSION}.dylib
       - if: win
-        then: if not exist %LIBRARY_INC%\snappy.h exit 1
-      - if: win
-        then: if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1
-      - if: win
-        then: if not exist %LIBRARY_LIB%\snappy.lib exit 1
-      - if: win
-        then: if not exist %LIBRARY_BIN%\snappy.dll exit 1
-
+        then:
+          - if not exist %LIBRARY_INC%\snappy.h exit 1
+          - if not exist %LIBRARY_INC%\snappy-stubs-public.h exit 1
+          - if not exist %LIBRARY_LIB%\snappy.lib exit 1
+          - if not exist %LIBRARY_BIN%\snappy.dll exit 1
 about:
   summary: A fast compressor/decompressor
   license: BSD-3-Clause
@@ -77,3 +75,4 @@ extra:
     - wesm
     - xhochy
     - djsutherland
+    - velonica0

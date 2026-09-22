@@ -3,17 +3,17 @@ From: "Uwe L. Korn" <uwe.korn@quantco.com>
 Date: Thu, 5 May 2022 21:08:49 +0200
 Subject: [PATCH 2/6] Unbundle gtest
 
+Refreshed for snappy 1.2.2 (hunk offset and blank context lines).
 ---
  CMakeLists.txt | 15 +--------------
  1 file changed, 1 insertion(+), 14 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index a1a10db..c5d2c2e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -328,20 +328,7 @@ if(SNAPPY_BUILD_TESTS)
+@@ -332,20 +332,7 @@
    set(build_gmock ON)
-
+ 
    # This project is tested using GoogleTest.
 -  add_subdirectory("third_party/googletest")
 -
@@ -30,9 +30,9 @@ index a1a10db..c5d2c2e 100644
 -        APPEND PROPERTY COMPILE_OPTIONS -Wno-implicit-int-float-conversion)
 -  endif(SNAPPY_HAVE_NO_IMPLICIT_INT_FLOAT_CONVERSION)
 +  find_package(GTest)
-
+ 
    add_executable(snappy_unittest "")
    target_sources(snappy_unittest
---
+-- 
 2.39.3 (Apple Git-146)
 

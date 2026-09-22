@@ -3,15 +3,15 @@ From: "Uwe L. Korn" <uwe.korn@quantco.com>
 Date: Thu, 5 May 2022 21:10:37 +0200
 Subject: [PATCH 3/6] Disable BMI2
 
+Refreshed for snappy 1.2.2 (hunk offset and blank context lines).
 ---
  snappy.cc | 4 ----
  1 file changed, 4 deletions(-)
 
 diff --git a/snappy.cc b/snappy.cc
-index 08c2a98..4474da4 100644
 --- a/snappy.cc
 +++ b/snappy.cc
-@@ -1193,14 +1193,10 @@ compressed_size, size_t uncompressed_size) {
+@@ -1194,14 +1194,10 @@
  static inline uint32_t ExtractLowBytes(const uint32_t& v, int n) {
    assert(n >= 0);
    assert(n <= 4);
@@ -24,8 +24,8 @@ index 08c2a98..4474da4 100644
    return v & ~(mask << (8 * n));
 -#endif
  }
-
+ 
  static inline bool LeftShiftOverflows(uint8_t value, uint32_t shift) {
---
+-- 
 2.39.3 (Apple Git-146)
 
