@@ -218,6 +218,7 @@ Feedstock Maintainers
 * [@djsutherland](https://github.com/djsutherland/)
 * [@groutr](https://github.com/groutr/)
 * [@jakirkham](https://github.com/jakirkham/)
+* [@velonica0](https://github.com/velonica0/)
 * [@wesm](https://github.com/wesm/)
 * [@xhochy](https://github.com/xhochy/)
 
