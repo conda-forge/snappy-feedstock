@@ -33,13 +33,15 @@ requirements:
   host:
     - if: win
       then: msinttypes
-    - gtest 1.13.*
+    - gtest
     - gmock
     - lz4-c
   run_exports:
     - ${{ pin_subpackage('snappy', upper_bound='x.x') }}
   ignore_run_exports:
     from_package:
+      # gtest is only used by the unit tests; newer gtest run-exports itself
+      - gtest
       - lz4-c
 
 tests:
