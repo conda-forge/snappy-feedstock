@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 1.2.2
+  version: "1.3.1"
 
 package:
   name: snappy
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/google/snappy/archive/${{ version }}.tar.gz
-  sha256: 90f74bc1fbf78a6c56b3c4a082a05103b3a56bb17bca1a27e052ea11723292dc
+  sha256: 893f708a0bf4b5529d555ffcee390e940e932fcf90261f682604475a76cd0247
   patches:
     # Name the static library snappy_static.lib on windows, to distinguish from
     # the dynamic library, since they have the same suffix there.
@@ -21,7 +21,7 @@ source:
     - patches/0005-Omit-Werror-during-compilation.patch
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
