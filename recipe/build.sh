@@ -9,6 +9,13 @@ else
 fi
 export CXXFLAGS="${CXXFLAGS} -DNDEBUG"
 
+# snappy 1.3.1 detects RVV with a check that passes without the V extension in
+# -march, then fails to compile the intrinsics. conda-forge's riscv64 baseline
+# does not include V, so disable the RVV paths.
+if [[ "${target_platform}" == linux-riscv64 ]]; then
+    export CMAKE_ARGS="${CMAKE_ARGS} -DSNAPPY_RVV_1=0 -DSNAPPY_RVV_0_7=0"
+fi
+
 
 function build() {
     suffix=$1
