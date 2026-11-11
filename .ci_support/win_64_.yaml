@@ -9,6 +9,6 @@ channel_targets:
 cxx_compiler:
 - vs2022
 lz4_c:
-- '1.10'
+- '1.11'
 target_platform:
 - win-64
