@@ -21,7 +21,7 @@ source:
     - patches/0005-Omit-Werror-during-compilation.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -31,7 +31,9 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
   host:
-    - if: win
+    # msinttypes only backfills stdint.h/inttypes.h for pre-2010 MSVC and is
+    # not built for win-arm64, whose VS2022 toolchain ships both headers.
+    - if: win and not arm64
       then: msinttypes
     - gtest
     - gmock
